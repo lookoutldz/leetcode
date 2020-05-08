@@ -6,10 +6,11 @@ import day5.Palindrome;
 import day6.RomanDigital;
 import day7.LongestCommonPrefix;
 import day8.ValidateBrackets;
+import day9.CombineList;
 import utils.PrintUtils;
 
 public class Main {
     public static void main(String[] args) {
-        new ValidateBrackets().test();
+        new CombineList().test();
     }
 }

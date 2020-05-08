@@ -1,5 +1,7 @@
 package utils;
 
+import day9.ListNode;
+
 import java.util.List;
 
 public class PrintUtils {
@@ -99,6 +101,18 @@ public class PrintUtils {
         }
         for (Number num : nums) {
             System.out.print(num + "  ");
+        }
+        System.out.println();
+    }
+
+    public static void print(ListNode listNode) {
+        if (listNode == null) {
+            System.out.println((Object) null);
+            return;
+        }
+        while (listNode != null) {
+            System.out.print(listNode.val + "\t");
+            listNode = listNode.next;
         }
         System.out.println();
     }
