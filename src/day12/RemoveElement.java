@@ -1,4 +1,4 @@
-package day11_remove_element;
+package day12;
 
 public class RemoveElement {
     public int removeElement(int[] nums, int val) {
