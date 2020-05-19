@@ -5,6 +5,7 @@ import day11.RemoveDuplicates;
 import day12.StrStr;
 import day13.InsertPosition;
 import day14.SurfaceSequence;
+import day15.MaxSubArray;
 import day3.MaxStack;
 import day4.IntReverse;
 import day5.Palindrome;
@@ -16,6 +17,6 @@ import utils.PrintUtils;
 
 public class Main {
     public static void main(String[] args) {
-        new SurfaceSequence().test();
+        new MaxSubArray().test();
     }
 }
