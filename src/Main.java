@@ -8,6 +8,7 @@ import day14.SurfaceSequence;
 import day15.MaxSubArray;
 import day16.LengthOfLastWord;
 import day17.ArrayPlusOne;
+import day18.BinarySum;
 import day3.MaxStack;
 import day4.IntReverse;
 import day5.Palindrome;
@@ -19,6 +20,6 @@ import utils.PrintUtils;
 
 public class Main {
     public static void main(String[] args) {
-        new ArrayPlusOne().test();
+        new BinarySum().test();
     }
 }
