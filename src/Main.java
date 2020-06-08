@@ -12,6 +12,7 @@ import day18.BinarySum;
 import day19.ClaimbStairs;
 import day20.DeleteDuplicates;
 import day21.MergeSortedArray;
+import day21.SameTree;
 import day3.MaxStack;
 import day4.IntReverse;
 import day5.Palindrome;
@@ -23,6 +24,6 @@ import utils.PrintUtils;
 
 public class Main {
     public static void main(String[] args) {
-        new MergeSortedArray().test();
+        new SameTree().test();
     }
 }
