@@ -1,5 +1,7 @@
 package day21;
 
+import utils.TreeNode;
+
 public class SameTree {
 
     public boolean isSameTree(TreeNode p, TreeNode q) {
@@ -14,13 +16,6 @@ public class SameTree {
         }
         return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
     }
-
-     public class TreeNode {
-         int val;
-         TreeNode left;
-         TreeNode right;
-         TreeNode(int x) { val = x; }
-     }
 
      public void test() {
         TreeNode root1 = new TreeNode(1);

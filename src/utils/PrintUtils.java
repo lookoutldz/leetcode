@@ -1,7 +1,5 @@
 package utils;
 
-import day9.ListNode;
-
 import java.util.List;
 
 public class PrintUtils {

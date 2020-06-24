@@ -1,4 +1,4 @@
-package day9;
+package utils;
 
 public class ListNode {
     public int val;

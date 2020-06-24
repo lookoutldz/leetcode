@@ -1,13 +1,8 @@
 package day22;
 
-public class SymmetricTree {
+import utils.TreeNode;
 
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int x) { val = x; }
-    }
+public class SymmetricTree {
 
     public boolean isSymmetric(TreeNode root) {
         if (root == null) {

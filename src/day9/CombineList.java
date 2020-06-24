@@ -1,8 +1,7 @@
 package day9;
 
+import utils.ListNode;
 import utils.PrintUtils;
-
-import java.util.List;
 
 public class CombineList {
 
