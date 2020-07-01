@@ -1,6 +1,11 @@
 package utils;
 
+import com.sun.source.tree.Tree;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class PrintUtils {
 
@@ -113,5 +118,32 @@ public class PrintUtils {
             listNode = listNode.next;
         }
         System.out.println();
+    }
+
+    public static void bfsTreeNode(TreeNode root) {
+        if (root == null) {
+            System.out.println("[null]");
+            return;
+        }
+        List<String> values = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                if (node != null) {
+                    values.add(String.valueOf(node.val));
+                    if (node.left != null || node.right != null) {
+                        queue.add(node.left);
+                        queue.add(node.right);
+                    }
+                } else {
+                    values.add(null);
+                }
+            }
+        }
+        String inside = String.join(",", values);
+        System.out.println("[" + inside + "]");
     }
 }
