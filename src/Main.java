@@ -17,6 +17,7 @@ import day22.SymmetricTree;
 import day23.TreeDepth;
 import day25.GenBalanceTree;
 import day26.IsBalanceTree;
+import day27.InvertBTree;
 import day3.MaxStack;
 import day4.IntReverse;
 import day5.Palindrome;
@@ -28,6 +29,6 @@ import utils.PrintUtils;
 
 public class Main {
     public static void main(String[] args) {
-        new IsBalanceTree().test();
+        new InvertBTree().test();
     }
 }
