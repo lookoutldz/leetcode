@@ -19,6 +19,7 @@ import day25.GenBalanceTree;
 import day26.IsBalanceTree;
 import day27.InvertBTree;
 import day3.MaxStack;
+import day30.MaxTree;
 import day4.IntReverse;
 import day5.Palindrome;
 import day6.RomanDigital;
@@ -29,6 +30,6 @@ import utils.PrintUtils;
 
 public class Main {
     public static void main(String[] args) {
-        new InvertBTree().test();
+        new MaxTree().test();
     }
 }
