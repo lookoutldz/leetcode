@@ -21,6 +21,7 @@ import day27.InvertBTree;
 import day3.MaxStack;
 import day30.MaxTree;
 import day33.YangHuiTriangle2;
+import day34.MaxProfit;
 import day4.IntReverse;
 import day5.Palindrome;
 import day6.RomanDigital;
@@ -31,6 +32,6 @@ import utils.PrintUtils;
 
 public class Main {
     public static void main(String[] args) {
-        new YangHuiTriangle2().test();
+        new MaxProfit().test();
     }
 }
