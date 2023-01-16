@@ -1,20 +1,21 @@
 package util;
 
+import datastructure.ListNode;
 import datastructure.TrieNode;
 
 import java.util.List;
 
 public class DisplayUtils {
-//    public static void println(ListNode listNode) {
-//        StringBuilder sb = new StringBuilder("[");
-//        while (listNode != null) {
-//            sb.append(listNode.val).append(",");
-//            listNode = listNode.next;
-//        }
-//        sb.deleteCharAt(sb.lastIndexOf(","));
-//        sb.append("]");
-//        System.out.println(sb);
-//    }
+    public static void println(ListNode listNode) {
+        StringBuilder sb = new StringBuilder("[");
+        while (listNode != null) {
+            sb.append(listNode.val).append(",");
+            listNode = listNode.next;
+        }
+        sb.deleteCharAt(sb.lastIndexOf(","));
+        sb.append("]");
+        System.out.println(sb);
+    }
 
     public static void println(char[][] css) {
         if (css == null || css.length == 0 || css[0].length == 0) {
