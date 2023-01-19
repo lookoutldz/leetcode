@@ -1,5 +1,7 @@
 package time1.leetcode.editor.cn;
 
+import util.DisplayUtils;
+
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution5 {
 
@@ -62,9 +64,50 @@ class Solution5 {
         return s.substring(left, left + maxLen);
     }
 
+    // Manachar 算法
+    // 参考资料
+    // https://blog.nowcoder.net/n/6f3084d9acf74111b37b6990262a2d15
+    // https://www.cnblogs.com/yoke/p/6938193.html
+    // https://segmentfault.com/a/1190000003914228
+    public String longestPalindrome3(String s) {
+        // 构造辅助串
+        int len = s.length() * 2 + 1;
+        char[] cs = new char[len];
+        for (int i = 0; i < len; i++) {
+            cs[i] = i % 2 == 0 ? '#' : s.charAt(i / 2);
+        }
+        // 构造 P 数组
+        int[] p = new int[len];
+        for (int i = 0; i < len; i++) {
+            p[i] = 1;
+        }
+
+        // manachar
+        int mx = 1, center = 1, size = -1, start = 0;
+        for (int i = 1; i < len - 1; i++) {
+            if (i < mx) {
+                // 当前位置在回文范围内
+                p[i] = Math.min(p[center * 2 - i], mx - i);
+            }
+            while (i - p[i] >= 0 && i + p[i] < len && cs[i - p[i]] == cs[i + p[i]]) {
+                p[i]++;
+            }
+            if (mx < i + p[i]) {
+                mx = i + p[i];
+                center = i;
+            }
+            if (size < p[i] - 1) {
+                size = p[i] - 1;
+                start = (center - size) / 2;
+            }
+        }
+
+        return s.substring(start, start + size);
+    }
+
     public static void main(String[] args) {
-        String s = "ab";
-        System.out.println(new Solution5().longestPalindrome2(s));
+        String s = "babaadab";
+        System.out.println(new Solution5().longestPalindrome3(s));
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

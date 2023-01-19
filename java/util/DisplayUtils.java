@@ -118,4 +118,21 @@ public class DisplayUtils {
         }
     }
 
+    public static void println(char[] arr) {
+        if (arr == null) {
+            System.out.println("null");
+            return;
+        }
+        if (arr.length == 0) {
+            System.out.println("[]");
+            return;
+        }
+        StringBuilder sb = new StringBuilder("[");
+        for (char b : arr) {
+            sb.append(b).append(',');
+        }
+        sb.deleteCharAt(sb.lastIndexOf(","));
+        sb.append(']');
+        System.out.println(sb);
+    }
 }
