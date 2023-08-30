@@ -66,38 +66,44 @@ class Solution5 {
 
     // Manachar 算法
     // 参考资料
-    // https://blog.nowcoder.net/n/6f3084d9acf74111b37b6990262a2d15
     // https://www.cnblogs.com/yoke/p/6938193.html
     // https://segmentfault.com/a/1190000003914228
+    // https://blog.nowcoder.net/n/6f3084d9acf74111b37b6990262a2d15
     public String longestPalindrome3(String s) {
-        // 构造辅助串
+        // 构造辅助串 abcba -> #a#b#c#b#a#
         int len = s.length() * 2 + 1;
         char[] cs = new char[len];
         for (int i = 0; i < len; i++) {
             cs[i] = i % 2 == 0 ? '#' : s.charAt(i / 2);
         }
-        // 构造 P 数组
-        int[] p = new int[len];
-        for (int i = 0; i < len; i++) {
-            p[i] = 1;
-        }
+        // 构造 len 数组（len[i] 表示以 i 为中心的最大回文半径）
+        int[] lens = new int[len];
 
-        // manachar
+        // manachar 开始
+        // mx 为当前最大回文串的最右边界，center 为 mx 的回文中心
         int mx = 1, center = 1, size = -1, start = 0;
+        // 由于 manachar 算法的核心就是扩展 mx, 当 mx 到字符串末尾算法就结束了
         for (int i = 1; i < len - 1; i++) {
+            // 判断位置
             if (i < mx) {
-                // 当前位置在回文范围内
-                p[i] = Math.min(p[center * 2 - i], mx - i);
+                // 当前位置在回文范围内，利用回文对称性
+                lens[i] = Math.min(lens[center * 2 - i], mx - i);
+            } else {
+                // 当前位置在回文范围外，赋默认回文长度 1
+                 lens[i] = 1;
             }
-            while (i - p[i] >= 0 && i + p[i] < len && cs[i - p[i]] == cs[i + p[i]]) {
-                p[i]++;
+            // 中心扩散
+            while (i - lens[i] >= 0 && i + lens[i] < len && cs[i - lens[i]] == cs[i + lens[i]]) {
+                lens[i]++;
             }
-            if (mx < i + p[i]) {
-                mx = i + p[i];
+            // 边界右扩
+            if (mx < i + lens[i]) {
+                mx = i + lens[i];
                 center = i;
             }
-            if (size < p[i] - 1) {
-                size = p[i] - 1;
+            // 计算起始点和长度
+            if (size < lens[i] - 1) {
+                size = lens[i] - 1;
                 start = (center - size) / 2;
             }
         }
@@ -105,9 +111,35 @@ class Solution5 {
         return s.substring(start, start + size);
     }
 
+
+    String foobar10(String s) {
+        int len = s.length() * 2 + 1;
+        char[] cs = new char[len];
+        for (int i = 0; i < len; i++) {
+            cs[i] = i % 2 == 0 ? '#' : s.charAt(i / 2);
+        }
+        int mx = 1, pos = 1, size = 0, start = -1;
+        int[] p = new int[len];
+        for (int i = 0; i < len; i++) {
+            p[i] = i < mx ? Math.min(p[2 * pos - i], mx - i) : 1;
+            while (i - p[i] >= 0 && i + p[i] < len && cs[i + p[i]] == cs[i - p[i]]) {
+                p[i]++;
+            }
+            if (mx < i + p[i]) {
+                mx = i + p[i];
+                pos = i;
+            }
+            if (size < p[i] - 1) {
+                size = p[i] - 1;
+                start = (pos - size) / 2;
+            }
+        }
+        return s.substring(start, start + size);
+    }
+
     public static void main(String[] args) {
-        String s = "babaadab";
-        System.out.println(new Solution5().longestPalindrome3(s));
+        String s = "babaDabdab";
+        System.out.println(new Solution5().foobar10(s));
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
